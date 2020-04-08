@@ -7,7 +7,7 @@ const getPublicUrlOrPath = require('react-dev-utils/getPublicUrlOrPath');
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
 const appDirectory = fs.realpathSync(process.cwd());
-const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -32,12 +32,12 @@ const moduleFileExtensions = [
   'tsx',
   'json',
   'web.jsx',
-  'jsx'
+  'jsx',
 ];
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
-  const extension = moduleFileExtensions.find(extension =>
+  const extension = moduleFileExtensions.find((extension) =>
     fs.existsSync(resolveFn(`${filePath}.${extension}`))
   );
 
@@ -68,23 +68,23 @@ module.exports = {
   appSrc: resolveApp('src'),
 
   // TS config
-  clientTsConfig: resolveApp('config/tsconfig/tsconfig.client.json'),
-  serverTsConfig: resolveApp('config/tsconfig/tsconfig.server.json'),
+  clientTsConfig: resolveApp('tsconfig.client.json'),
+  serverTsConfig: resolveApp('tsconfig.json'),
 
   // Webpack config
-  clientWebpackConfig: resolveApp('config/webpack/webpack.client.js'),
-  serverWebpackConfig: resolveApp('config/webpack/webpack.server.js'),
+  clientWebpackConfig: resolveApp('webpack.client.js'),
+  serverWebpackConfig: resolveApp('webpack.js'),
 
   // Output
   clientOutputPath: resolveApp('build/client'),
   serverOutputPath: resolveApp('build/server'),
 
-  appTsConfig: resolveApp('config/tsconfig/tsconfig.client.json'),
+  appTsConfig: resolveApp('tsconfig.client.json'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveModule(resolveApp, 'src/setupTests'),
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
-  publicUrlOrPath
+  publicUrlOrPath,
 };
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

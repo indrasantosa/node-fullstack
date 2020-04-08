@@ -1,14 +1,11 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Dashboard from './containers/Dashboard';
+import Performance from './containers/Performance/index';
 
 const AppRoutes = () => {
   return (
     <Switch>
-      <Route exact path={'/'}>
-        <Redirect to='/dashboard/personal-info/create' />
-      </Route>
-      <Route path={'/dashboard'} component={Dashboard}></Route>
+      <Route exact path={'/'} component={Performance}></Route>
     </Switch>
   );
 };

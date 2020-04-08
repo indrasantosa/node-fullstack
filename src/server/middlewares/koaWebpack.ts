@@ -1,7 +1,7 @@
 import koaWebpack from 'koa-webpack';
 import webpack, { Configuration } from 'webpack';
 
-import frontEndConfig from '../../../config/webpack/webpack.client.config';
+import frontEndConfig from '../../../webpack.config';
 
 const createWebpack = async () => {
   const compiler = webpack(

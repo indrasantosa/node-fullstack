@@ -20,7 +20,6 @@ const createApp = async () => {
   app.use(errHandler);
   app.use(spaPlugins);
   app.use(koaBody({ multipart: true }));
-  // app.use(bodyParser());
 
   // Add application routes
   app.use(createApplicationRouter().routes());
